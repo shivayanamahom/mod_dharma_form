@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "mod_dharma_form",
+  "version": "0.1.0",
+  "assets": [
+    {
+      "name": "mod_dharma_form.form",
+      "type": "style",
+      "uri": "mod_dharma_form/form.css",
+      "version": "0.1.0"
+    },
+    {
+      "name": "mod_dharma_form.form",
+      "type": "script",
+      "uri": "mod_dharma_form/form.js",
+      "attributes": {"defer": true},
+      "version": "0.1.0"
+    }
+  ]
+}
