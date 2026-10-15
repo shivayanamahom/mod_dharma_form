@@ -43,23 +43,44 @@ jobs:
           import xml.etree.ElementTree as ET
 
           version, checksum, package = sys.argv[1:]
-          root = ET.Element("updates")
-          update = ET.SubElement(root, "update")
+          try:
+              tree = ET.parse("updates.xml")
+              root = tree.getroot()
+          except Exception:
+              root = ET.Element("updates")
+              tree = ET.ElementTree(root)
+
+          # Удаляем запись этой же версии, если уже была
+          for old in list(root):
+              if old.findtext("version") == version:
+                  root.remove(old)
+
+          update = ET.Element("update")
+          root.insert(0, update)
+
           for tag, value in (
               ("name", "Dharma Form"),
-              ("description", "Dharma Form Joomla module"),
+              ("description", "Dharma Form — конструктор форм обратной связи для Joomla 5/6 (RadicalForm)"),
               ("element", "mod_dharma_form"),
               ("type", "module"),
-              ("version", version),
               ("client", "site"),
+              ("version", version),
           ):
               ET.SubElement(update, tag).text = value
+
+          infourl = ET.SubElement(update, "infourl", {"title": f"Dharma Form v{version}"})
+          infourl.text = f"https://github.com/shivayanamahom/mod_dharma_form/releases/tag/v{version}"
+
           downloads = ET.SubElement(update, "downloads")
           download = ET.SubElement(downloads, "downloadurl", {"type": "full", "format": "zip"})
           download.text = f"https://github.com/shivayanamahom/mod_dharma_form/releases/download/v{version}/{package.rsplit('/', 1)[-1]}"
           ET.SubElement(update, "sha256").text = checksum
+          ET.SubElement(update, "maintainer").text = "Dharma Design"
+          ET.SubElement(update, "maintainerurl").text = "https://github.com/shivayanamahom"
+          ET.SubElement(update, "targetplatform", {"name": "joomla", "version": "((5|6)\..*)"})
+
           ET.indent(root, space="\t")
-          ET.ElementTree(root).write("updates.xml", encoding="utf-8", xml_declaration=True)
+          tree.write("updates.xml", encoding="utf-8", xml_declaration=True)
           PY
 
           git config user.name "github-actions[bot]"

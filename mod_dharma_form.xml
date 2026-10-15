@@ -8,7 +8,7 @@
 	<version>0.1.1</version>
 	<description>MOD_DHARMA_FORM_DESCRIPTION</description>
 	<updateservers>
-		<server type="extension" name="Dharma Form Updates">https://raw.githubusercontent.com/shivayanamahom/mod_dharma_form/main/updates.xml</server>
+		<server type="extension" priority="1" name="Dharma Form Updates">https://raw.githubusercontent.com/shivayanamahom/mod_dharma_form/main/updates.xml</server>
 	</updateservers>
 	<namespace path="src">Joomla\Module\DharmaForm</namespace>
 	<languages folder="language">

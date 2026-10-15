@@ -36,6 +36,7 @@ li{margin:.25rem 0}
 <nav><b>Содержание</b>
 <a href="#требования">Требования</a>
 <a href="#установка-модуля">Установка модуля</a>
+<a href="#автоматические-обновления">Автоматические обновления</a>
 <a href="#вкладка-конструктор-форм">Вкладка «Конструктор форм»</a>
 <a href="#вкладка-настройки">Вкладка «Настройки»</a>
 <a href="#простая-и-модальная-форма">Простая и модальная форма</a>
@@ -55,11 +56,13 @@ li{margin:.25rem 0}
 </nav>
 <main>
 <h1 id="dharma-form-mod_dharma_form">Dharma Form (mod_dharma_form)</h1>
+<p><a href="https://img.shields.io/github/v/release/shivayanamahom/mod_dharma_form?color=blue" target="_blank" rel="noopener">![Release</a>](https://github.com/shivayanamahom/mod_dharma_form/releases) <a href="https://img.shields.io/badge/Joomla-5.x%20%7C%206.x-orange.svg" target="_blank" rel="noopener">![Joomla</a>](https://www.joomla.org/) <a href="https://img.shields.io/badge/PHP-8.2%2B-777bb4.svg" target="_blank" rel="noopener">![PHP</a>](https://www.php.net/) <a href="https://img.shields.io/badge/License-GPL--2.0%2B-blue.svg" target="_blank" rel="noopener">![License: GPL-2.0+</a>](LICENSE)</p>
 <p>Модуль Joomla 5/6 для сборки форм обратной связи прямо в админке (работает с плагином RadicalForm): простая форма на странице или модальное окно, поля и согласия добавляются в конструкторе.</p>
 <blockquote><strong>Важно: модуль только рисует форму. Отправку, письма, защиту от спама и уведомления делает плагин <a href="https://radicalmart.ru/all/radicalform" target="_blank" rel="noopener">RadicalForm</a>. Без него форма на странице есть, но ничего не отправляет.</strong></blockquote>
+<blockquote><strong>Для разработчиков и ИИ-агентов (AI Coding Agents):</strong> перед внесением правок ознакомьтесь с <a href="AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a> — там описана архитектура модуля, правила конструктора полей, работа с RadicalForm и регламент сборки.</blockquote>
 <h2 id="требования">Требования</h2>
 <div class="table"><table><thead><tr><th>Что</th><th>Версия / примечание</th></tr></thead><tbody>
-<tr><td>Joomla</td><td>5.2+ (проверено на 6.1)</td></tr>
+<tr><td>Joomla</td><td>5.2+ (проверено на 6.1, 6.2)</td></tr>
 <tr><td>PHP</td><td>8.2+ (требование RadicalForm; на сайте проверено на 8.4)</td></tr>
 <tr><td>Плагин RadicalForm</td><td>4.2.6+, <strong>системный плагин должен быть установлен и включён</strong></td></tr>
 <tr><td>Bootstrap 5 в шаблоне</td><td>нужен только для модального режима (стили окна <code>.modal</code>)</td></tr>
@@ -74,13 +77,33 @@ li{margin:.25rem 0}
 <p>Установка: «Система → Установка → Расширения», загрузить <code>plg_radicalform.zip</code>. Затем в настройках плагина указать e-mail получателя и остальные параметры (Telegram, антиспам и т. д. — по документации плагина).</p>
 <p>Если плагин выключен или не установлен, администратор (пользователь с правом управлять модулями) увидит над формой предупреждение. Обычные посетители его не видят.</p>
 <h2 id="установка-модуля">Установка модуля</h2>
-<p>Готовый архив <code>mod_dharma_form-&lt;версия&gt;.zip</code> лежит в разделе <strong>Releases</strong> репозитория.</p>
+<h3 id="вариант-1-прямая-установка-по-url-в-joomla-без-скачивания-архива">Вариант 1: Прямая установка по URL в Joomla (без скачивания архива)</h3>
+<p>Скопируйте ссылку на актуальный пакет установки:</p>
+<pre><code>https://github.com/shivayanamahom/mod_dharma_form/releases/download/v0.1.1/mod_dharma_form-0.1.1.zip</code></pre>
 <ol>
-<li>«Система → Установка → Расширения» → загрузить <code>mod_dharma_form-&lt;версия&gt;.zip</code>.</li>
+<li>В панели управления Joomla откройте: <strong>Система</strong> → <strong>Установка</strong> → <strong>Расширения</strong> → вкладка <strong>«Установить по URL-адресу»</strong>.</li>
+<li>Вставьте скопированную ссылку в поле <strong>«URL пакета установки»</strong>.</li>
+<li>Нажмите кнопку <strong>«Проверить и установить»</strong>.</li>
+</ol>
+<h3 id="вариант-2-загрузка-архива-из-releases">Вариант 2: Загрузка архива из Releases</h3>
+<ol>
+<li>Скачайте <code>mod_dharma_form-&lt;версия&gt;.zip</code> со страницы <a href="https://github.com/shivayanamahom/mod_dharma_form/releases" target="_blank" rel="noopener">Releases</a>.</li>
+<li>В админке Joomla перейдите в <strong>«Система → Установка → Расширения»</strong> → вкладка <strong>«Загрузить файл пакета»</strong>.</li>
+<li>Перетащите скачанный zip-архив в область загрузки.</li>
+</ol>
+<h3 id="настройка-модуля">Настройка модуля</h3>
+<ol>
 <li>«Содержимое → Модули сайта → Создать» → «Dharma Form».</li>
 <li>Настроить поля и параметры (см. ниже), назначить позицию и страницы («Привязка к меню»), опубликовать.</li>
 </ol>
 <p>Одна форма — один модуль. Форм на странице может быть сколько угодно: у каждой свой <code>id</code> (<code>dharma_form_&lt;ID модуля&gt;</code>).</p>
+<h2 id="автоматические-обновления">Автоматические обновления</h2>
+<p>Модуль поддерживает стандартный механизм обновлений Joomla («Система» → «Обновления» → «Расширения»).</p>
+<p>В манифест <code>mod_dharma_form.xml</code> подключен сервер обновлений:</p>
+<pre><code>&lt;updateservers&gt;
+    &lt;server type=&quot;extension&quot; priority=&quot;1&quot; name=&quot;Dharma Form Updates&quot;&gt;https://raw.githubusercontent.com/shivayanamahom/mod_dharma_form/main/updates.xml&lt;/server&gt;
+&lt;/updateservers&gt;</code></pre>
+<p>Уведомления о новых версиях и возможность обновления в один клик поступают в панель управления Joomla автоматически.</p>
 <h2 id="вкладка-конструктор-форм">Вкладка «Конструктор форм»</h2>
 <p>Список полей. Добавлять — кнопкой «+», менять порядок — перетаскиванием.</p>
 <div class="table"><table><thead><tr><th>Тип поля</th><th>Что выводит</th></tr></thead><tbody>

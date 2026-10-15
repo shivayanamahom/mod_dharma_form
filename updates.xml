@@ -1,15 +1,35 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <updates>
 	<update>
 		<name>Dharma Form</name>
-		<description>Dharma Form Joomla module</description>
+		<description>Dharma Form — конструктор форм обратной связи для Joomla 5/6 (RadicalForm)</description>
 		<element>mod_dharma_form</element>
 		<type>module</type>
-		<version>0.1.1</version>
 		<client>site</client>
+		<version>0.1.1</version>
+		<infourl title="Dharma Form v0.1.1">https://github.com/shivayanamahom/mod_dharma_form/releases/tag/v0.1.1</infourl>
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/shivayanamahom/mod_dharma_form/releases/download/v0.1.1/mod_dharma_form-0.1.1.zip</downloadurl>
 		</downloads>
 		<sha256>84589cc56cb6a6e0ab73d764dffa8700ecb66e292a9604661140ed1f49c9998d</sha256>
+		<maintainer>Dharma Design</maintainer>
+		<maintainerurl>https://github.com/shivayanamahom</maintainerurl>
+		<targetplatform name="joomla" version="((5|6)\..*)" />
+	</update>
+	<update>
+		<name>Dharma Form</name>
+		<description>Dharma Form — конструктор форм обратной связи для Joomla 5/6 (RadicalForm)</description>
+		<element>mod_dharma_form</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.1.0</version>
+		<infourl title="Dharma Form v0.1.0">https://github.com/shivayanamahom/mod_dharma_form/releases/tag/v0.1.0</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/shivayanamahom/mod_dharma_form/releases/download/v0.1.0/mod_dharma_form-0.1.0.zip</downloadurl>
+		</downloads>
+		<sha256>29fb8d3a272866aa5222407774780e49a097e25aa52d962a56d7c31b13dc0169</sha256>
+		<maintainer>Dharma Design</maintainer>
+		<maintainerurl>https://github.com/shivayanamahom</maintainerurl>
+		<targetplatform name="joomla" version="((5|6)\..*)" />
 	</update>
 </updates>
