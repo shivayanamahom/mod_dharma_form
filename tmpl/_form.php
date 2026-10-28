@@ -76,6 +76,11 @@ $errorEl = static fn (array $field): string => '<div class="dharma-form__error" 
 			<?php continue;
 		endif;
 
+		if ($field['type'] === 'note') : ?>
+			<div class="dharma-form__note"><?php echo $field['html']; ?></div>
+			<?php continue;
+		endif;
+
 		if ($field['type'] === 'consent') : ?>
 			<div class="dharma-form__field dharma-form__field--consent mb-3">
 				<label class="dharma-form__consent">

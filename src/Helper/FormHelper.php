@@ -29,7 +29,7 @@ class FormHelper
 	/**
 	 * Типы полей, доступные в конструкторе.
 	 */
-	private const TYPES = ['text', 'email', 'textarea', 'phone', 'select', 'radio', 'checkboxes', 'file', 'hidden', 'consent'];
+	private const TYPES = ['text', 'email', 'textarea', 'phone', 'select', 'radio', 'checkboxes', 'file', 'hidden', 'consent', 'note'];
 
 	/**
 	 * Типы, чьё имя можно получить транслитерацией названия.
@@ -55,6 +55,7 @@ class FormHelper
 		'file'       => 'file',
 		'hidden'     => 'hidden_field',
 		'consent'    => 'agree',
+		'note'       => 'note',
 	];
 
 	/**
@@ -91,6 +92,17 @@ class FormHelper
 
 			// Согласие без текста выводить нечего.
 			if ($type === 'consent' && $this->getConsentHtml($row) === '') {
+				continue;
+			}
+
+			// Текстовый блок между полями: только безопасный HTML, поля у него нет.
+			if ($type === 'note') {
+				$noteHtml = $this->cleanHtml(trim((string) ($row['text'] ?? '')));
+
+				if ($noteHtml !== '') {
+					$fields[] = ['type' => 'note', 'name' => '', 'label' => '', 'placeholder' => '', 'required' => false, 'html' => $noteHtml];
+				}
+
 				continue;
 			}
 

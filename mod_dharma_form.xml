@@ -5,7 +5,7 @@
 	<creationDate>October 2026</creationDate>
 	<copyright>Copyright © 2026 Dharma Design. All rights reserved.</copyright>
 	<license>https://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<description>MOD_DHARMA_FORM_DESCRIPTION</description>
 	<updateservers>
 		<server type="extension" priority="1" name="Dharma Form Updates">https://raw.githubusercontent.com/shivayanamahom/mod_dharma_form/main/updates.xml</server>
@@ -63,6 +63,7 @@
 							<option value="file">MOD_DHARMA_FORM_TYPE_FILE</option>
 							<option value="hidden">MOD_DHARMA_FORM_TYPE_HIDDEN</option>
 							<option value="consent">MOD_DHARMA_FORM_TYPE_CONSENT</option>
+							<option value="note">MOD_DHARMA_FORM_TYPE_NOTE</option>
 						</field>
 						<field
 							name="name"
@@ -124,7 +125,7 @@
 							description="MOD_DHARMA_FORM_FIELD_CONSENT_TEXT_DESC"
 							rows="3"
 							filter="safehtml"
-							showon="type:consent"
+							showon="type:consent,note"
 						/>
 						<field
 							name="link_text"

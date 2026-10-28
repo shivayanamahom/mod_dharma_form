@@ -27,7 +27,7 @@
   </updateservers>
   ```
 - **Конструктор полей (`subform`):**
-  Поля формы задаются через повторяемый `subform` с типами: `text`, `email`, `textarea`, `phone`, `select`, `radio`, `checkbox`, `hidden`, `file`, `consent`. При добавлении новых типов полей их обработка должна поддерживаться как в XML-форме, так и в `tmpl/_form.php` и `src/Helper/FormHelper.php`.
+  Поля формы задаются через повторяемый `subform` с типами: `text`, `email`, `textarea`, `phone`, `select`, `radio`, `checkbox`, `hidden`, `file`, `consent`, `note` (текстовый блок без поля). При добавлении новых типов полей их обработка должна поддерживаться как в XML-форме, так и в `tmpl/_form.php` и `src/Helper/FormHelper.php`.
 
 ### 2.2. Шаблоны вывода (`tmpl/`)
 - `tmpl/default.php`: Корневой шаблон. Проверяет наличие и активность системного плагина `plg_system_radicalform`. Если плагин выключен, выводит предупреждение для администратора. Рендерит форму на странице или внутри модального окна Bootstrap 5.

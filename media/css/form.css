@@ -68,6 +68,41 @@
   border-color: var(--dform-danger);
 }
 
+.dharma-form__note {
+  margin: 1.25rem 0 1rem;
+  color: var(--dform-ink);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.dharma-form__note p {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.dharma-form__note ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.dharma-form__note li {
+  position: relative;
+  margin: 0.2rem 0;
+  padding-left: 0.9rem;
+}
+
+.dharma-form__note li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+}
+
+.dharma-form__note a {
+  color: var(--dform-primary);
+  text-decoration: underline;
+}
+
 .dharma-form__consent {
   display: flex;
   align-items: flex-start;
