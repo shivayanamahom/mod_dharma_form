@@ -182,6 +182,11 @@
       }
     }, true);
 
+    // Отправку выполняет RadicalForm по кнопке. У формы нет action и method, а
+    // если в ней одно текстовое поле (например, только телефон), Enter запускает
+    // штатную отправку браузера: данные уходят GET-запросом в адресную строку.
+    form.addEventListener('submit', (event) => event.preventDefault());
+
     form.querySelectorAll('.dharma-form__field--radio, .dharma-form__field--checkboxes').forEach(initGroup);
 
     new MutationObserver((records) => {
